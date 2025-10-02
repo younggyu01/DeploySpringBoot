@@ -8,7 +8,7 @@
     ```
     docker network create --driver bridge msanet  
     ```
-* MariaDB Run 하기 ( git bash 에서 실행을 해야 함)
+* MariaDB Run 하기
 ``` 
 docker run --name db-svc -d \
   --net msanet \
@@ -32,4 +32,9 @@ docker run --name myboot-svc -d -p 8080:8080 --net msanet --net-alias=myboot-svc
 -e DB_USERNAME='boot' \
 -e DB_PASSWORD='boot' \
 myuser/springbootreactjs:0.1
+```
+
+* Reactjs Run 하기
+```
+docker run --name react-svc -d -p 80:80 --net msanet --net-alias=react-svc myuser/springbootreactjs:client0.1
 ```
